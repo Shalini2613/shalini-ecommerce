@@ -1,6 +1,8 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, addToWishlist } from "../redux/actions/ActionProduct";
+import { FaHome, FaShoppingCart, FaArrowLeft, FaHeart } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -47,7 +49,10 @@ export default function ProductDetails() {
           >
             Add to Wishlist
           </button>
-          <button onClick={()=>backtocart()} className="btn btn-primary">Back To Home</button>
+          <button onClick={()=>backtocart()} className="btn btn-primary">
+             <Link to="/" title="Back to Home" className="me-1">
+    <FaArrowLeft size={20} color="white" />
+  </Link>Home</button>
         </div>
       </div>
     </div>
