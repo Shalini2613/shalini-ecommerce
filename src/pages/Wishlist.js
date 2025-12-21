@@ -1,7 +1,12 @@
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function Wishlist() {
   const wishlist = useSelector((state) => state.wishlist);
+  const navigate = useNavigate()
+  const backtocart = () => {
+    navigate("/");
+  }
 
   return (
     <div className="container mt-3">
@@ -15,6 +20,8 @@ export default function Wishlist() {
           <p>₹ {item.price}</p>
         </div>
       ))}
+            <button onClick={()=>backtocart()} className="btn btn-sm btn-primary">Back</button>
+
     </div>
   );
 }
