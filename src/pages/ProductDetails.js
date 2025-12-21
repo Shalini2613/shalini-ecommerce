@@ -1,10 +1,11 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { addToCart, addToWishlist } from "../redux/actions/ActionProduct";
 
 export default function ProductDetails() {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const product = useSelector((state) =>
     state.products.list.find((p) => p.id === Number(id))
@@ -12,6 +13,9 @@ export default function ProductDetails() {
 
   if (!product) {
     return <div className="container mt-3">Loading...</div>;
+  }
+  const backtocart = () =>{
+    navigate("/")
   }
 
   return (
@@ -38,11 +42,12 @@ export default function ProductDetails() {
           </button>
 
           <button
-            className="btn btn-warning"
+            className="btn btn-warning me-2"
             onClick={() => dispatch(addToWishlist(product))}
           >
             Add to Wishlist
           </button>
+          <button onClick={()=>backtocart()} className="btn btn-primary">Back To Home</button>
         </div>
       </div>
     </div>
