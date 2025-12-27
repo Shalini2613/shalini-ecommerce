@@ -17,13 +17,13 @@ export default function Navbar() {
          <Link to="/cart" title="Cart" className="me-1 mb-2">
             <FaShoppingCart size={16} color="white" />
           </Link>
-          Cart ({cartCount})
+          Cart {cartCount}
         </Link>
         <Link to="/wishlist" className="btn btn-outline-light">
         <Link to="/wishlist" title="Wishlist" className="me-1 mb-2">
       <FaHeart size={16} color="white" />
     </Link>
-          Wishlist ({wishCount})
+          Wishlist {wishCount}
         </Link>
       </div>
     </nav>
