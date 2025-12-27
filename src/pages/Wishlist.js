@@ -29,7 +29,7 @@ export default function Wishlist() {
       {wishlist.length === 0 && <p>No items in wishlist</p>}
 
       {wishlist.map((item, index) => (
-        <div key={index} className="border p-2 mb-2">
+        <div key={index} className="p-2" style={{ margin: "10px 0px", borderRadius: "4px",boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px" }}>
           <h6>{item.title}</h6>
           <p>₹ {item.price}</p>
           <button
@@ -40,7 +40,7 @@ export default function Wishlist() {
           </button>
         </div>
       ))}
-      <button onClick={() => backtocart()} className="btn btn-sm btn-primary">
+      <button onClick={() => backtocart()} className="btn btn-primary">
         Back
       </button>
 

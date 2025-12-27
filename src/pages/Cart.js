@@ -3,43 +3,61 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { removeFromCart } from "../redux/actions/productActions";
 import * as bootstrap from "bootstrap";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import './product.css'
 
 export default function Cart() {
-  const cart = useSelector(state => state.cart);
+  const cart = useSelector((state) => state.cart);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-    const toastRef = useRef(null);
+  const toastRef = useRef(null);
+  const[iscart, setIsCart] = useState(true);
   const backtocart = () => {
     navigate("/productList");
-  }
+  };
   const showToast = () => {
-      const toast = new bootstrap.Toast(toastRef.current);
-      toast.show();
-    };
+    const toast = new bootstrap.Toast(toastRef.current);
+    toast.show();
+  };
+
+  const handleRemove = (id) => {
+    dispatch(removeFromCart(id));
+    showToast();
+  };
   
-    const handleRemove = (id) => {
-      dispatch(removeFromCart(id));
-      showToast();
-    };
+  useEffect(() => {
+  setIsCart(cart.length === 0);
+}, [cart]);
+
   return (
     <div className="container mt-3">
-      <h3>Cart</h3>
+      <h3>Cart <button className="btn btn-danger buy-now" disabled={iscart}>Buy Now</button></h3> 
+      
       {cart.length === 0 && <p>No items in Cart</p>}
-
-      {cart.map((item, i) => 
-        <div style={{border:'1px solid black', margin: '10px 0px'}} className="p-1">
-            <img src={item.image} alt={item.title} className="card-img-top p-1" height="100" style={{width: '100px'}}/>
-            <p key={i}>{item.title}</p>
-            <button
-                        className="btn btn-sm btn-danger"
-                        onClick={() => handleRemove(item.id)}
-                      >Remove</button>
+      {cart.map((item, i) => (
+        <div
+          style={{ margin: "10px 0px", borderRadius: "4px",boxShadow: "rgba(149, 157, 165, 0.2) 0px 8px 24px" }}
+          className="p-3"
+        >
+          <img
+            src={item.image}
+            alt={item.title}
+            className="card-img-top p-1"
+            height="100"
+            style={{ width: "100px" }}
+          />
+          <p key={i}>{item.title}</p>
+          <button
+            className="btn btn-danger"
+            onClick={() => handleRemove(item.id)}
+          >
+            Remove
+          </button>
         </div>
-      )}
-      <button onClick={()=>backtocart()} className="btn btn-sm btn-primary">Back</button>
-
-
+      ))}
+      <button onClick={() => backtocart()} className="btn btn-primary">
+        Back
+      </button>
       {/* TOAST FOR REMOVING THE ITEM FROM CART*/}
       <div
         className="toast align-items-center text-white bg-primary border-0 position-fixed bottom-0 end-0 m-3"

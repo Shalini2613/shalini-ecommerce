@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { addToCart, addToWishlist } from "../redux/actions/ActionProduct";
 import { FaHome, FaShoppingCart, FaArrowLeft, FaHeart } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import './product.css';
 
 export default function ProductDetails() {
   const { id } = useParams();
@@ -17,7 +18,7 @@ export default function ProductDetails() {
     return <div className="container mt-3">Loading...</div>;
   }
   const backtocart = () =>{
-    navigate("/")
+    navigate("/productList")
   }
 
   return (
@@ -49,9 +50,15 @@ export default function ProductDetails() {
           >
             Add to Wishlist
           </button>
-          <button onClick={()=>backtocart()} className="btn btn-primary">
-             <Link to="/" title="Back to Home" className="me-1">
-    <FaArrowLeft size={20} color="white" />
+          <button
+            className="btn btn-danger me-2"
+            onClick={() => dispatch(addToWishlist(product))}
+          >
+            Buy Now
+          </button>
+          <button onClick={()=>backtocart()} className="btn btn-primary home-btn">
+             <Link to="/productList" title="Back to Home" className="me-1 mb-1">
+    <FaArrowLeft size={18} color="white" />
   </Link>Home</button>
         </div>
       </div>
