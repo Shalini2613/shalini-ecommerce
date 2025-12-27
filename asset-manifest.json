@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/shalini-ecommerce/static/css/main.2405c19d.css",
+    "main.css": "/shalini-ecommerce/static/css/main.59371753.css",
     "main.js": "/shalini-ecommerce/static/js/main.d7e7d052.js",
     "static/js/453.326d6322.chunk.js": "/shalini-ecommerce/static/js/453.326d6322.chunk.js",
     "index.html": "/shalini-ecommerce/index.html",
-    "main.2405c19d.css.map": "/shalini-ecommerce/static/css/main.2405c19d.css.map",
+    "main.59371753.css.map": "/shalini-ecommerce/static/css/main.59371753.css.map",
     "main.d7e7d052.js.map": "/shalini-ecommerce/static/js/main.d7e7d052.js.map",
     "453.326d6322.chunk.js.map": "/shalini-ecommerce/static/js/453.326d6322.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.2405c19d.css",
+    "static/css/main.59371753.css",
     "static/js/main.d7e7d052.js"
   ]
 }
