@@ -37,8 +37,10 @@ const Login = () => {
           <h2>Login Here</h2>
           <input className="form-control mb-3" placeholder="Username" value={username} onChange={(e)=>setUsername(e.target.value)} required/>
           <input className="form-control mb-3" placeholder="Password" value={Password} onChange={(e) => setPassword(e.target.value)} required/>
-          <button type="button" className="btn btn-sm btn-success me-2" onClick={handleLogin}>Login</button>
+          <div className="btn-group">
+            <button type="button" className="btn btn-sm btn-success me-2" onClick={handleLogin}>Login</button>
           <button type="button" className="btn btn-sm btn-primary me-2" onClick={clearFields}>Clear</button>
+          </div>
         </div>
       </div>
     </div>
