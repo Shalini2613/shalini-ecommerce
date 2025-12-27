@@ -32,7 +32,7 @@ const Login = () => {
         </h2>
       </div>
       <div className="right-container col-md-6">
-        <div className="login-main-container container">
+        <div className="login-main-container">
         <h1 className="company-name">Shalini Shop</h1>
           <h2>Login Here</h2>
           <input className="form-control mb-3" placeholder="Username" value={username} onChange={(e)=>setUsername(e.target.value)} required/>

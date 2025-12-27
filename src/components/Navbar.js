@@ -8,7 +8,7 @@ export default function Navbar() {
 
   return (
     <nav className="navbar navbar-dark bg-dark px-3">
-      <Link to="/productList" className="navbar-brand">
+      <Link to="/" className="navbar-brand">
         Shalini Shop
       </Link>
 
